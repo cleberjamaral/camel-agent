@@ -3,8 +3,6 @@
  */
 import org.junit.Test;
 
-import com.sun.source.tree.AssertTree;
-
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
