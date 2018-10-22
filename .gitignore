@@ -5,3 +5,4 @@
 /email-forwarding-app/target/**/*
 /camel-agent-component/target/
 /camel-agent-component/target/**/*
+/bin/

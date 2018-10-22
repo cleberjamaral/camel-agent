@@ -169,7 +169,7 @@ public class SimpleJasonAgent extends AgArch implements Serializable{
     private void updatePercepts(String updateMode, Set<String> nafFunctors, Collection<Literal> newPercepts, Queue<Literal> perceptQueue) {
         //If updateMode is "add" (default option) and an identical percept is not already in the persistent queue, add the percept to the persistent queue
         if (updateMode.equals("add")) {
-            List<Literal> perceptsToAdd = new LinkedList<>(newPercepts);
+            List<Literal> perceptsToAdd = new LinkedList<Literal>(newPercepts);
             synchronized (perceptQueue) {
                 Iterator<Literal> it = perceptsToAdd.iterator();
                 while (it.hasNext()) {

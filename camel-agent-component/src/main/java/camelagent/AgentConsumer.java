@@ -160,7 +160,7 @@ public class AgentConsumer extends DefaultConsumer {
     		try {    			
     			ActionExec action = jasonAction.getAction();
     			String agName = jasonAction.getAgName();
-                        List<String> paramsAsStrings = new ArrayList<>();
+                        List<String> paramsAsStrings = new ArrayList<String>();
                         List<Term> args = action.getActionTerm().getTerms();
                         if (args != null) // Bug in Jason allows null rather than empty list
                         {
