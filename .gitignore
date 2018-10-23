@@ -4,8 +4,8 @@
 
 /target/
 /build/
-/grade/
-/.grade/
+*/grade/**
+*/.grade/**
 /.settings/
 
 
