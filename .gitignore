@@ -1,18 +1,32 @@
-.project
-.classpath
-.settings/**/*
+bin
+build
+target
+APDescription.txt
+MTPs-Main-Container.txt
 
-/target/
-/build/
-*/grade/**
-*/.grade/**
-/.settings/
-
+*.log
+.stop___MAS
+*~
+.gradle
+.settings
+doc/*.html
 
 *.class
-*~
-/email-forwarding-app/target/
-/email-forwarding-app/target/**/*
-/camel-agent-component/target/
-/camel-agent-component/target/**/*
-/bin/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+readme.html
+release-notes.html
+
+src/test/java/project/log
+
+.classpath
+.project
