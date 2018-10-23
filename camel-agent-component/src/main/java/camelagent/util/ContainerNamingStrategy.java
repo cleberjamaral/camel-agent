@@ -20,14 +20,13 @@
 package camelagent.util;
 
 /**
- * @author surangika
- *Interface to generate a name for the AgentContainer, which will be used by the agents
+ * @author surangika Interface to generate a name for the AgentContainer, which
+ *         will be used by the agents
  */
 public interface ContainerNamingStrategy {
 	/**
-	 * @return
-	 * Return the name of the AgentContainer
+	 * @return Return the name of the AgentContainer
 	 */
 	public String getName();
-	
+
 }

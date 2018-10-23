@@ -19,34 +19,28 @@
 
 package camelagent;
 
-
 import jason.asSemantics.ActionExec;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
- * @author surangika
- *Wrapper class for Jason external actions
+ * @author surangika Wrapper class for Jason external actions
  */
-public class JasonAction implements Serializable{
-	static final long serialVersionUID =1;
+public class JasonAction implements Serializable {
+	static final long serialVersionUID = 1;
 	private ActionExec action;
 	private String agName;
-	
-	public JasonAction(ActionExec action, String agName)
-	{
+
+	public JasonAction(ActionExec action, String agName) {
 		this.action = action;
 		this.agName = agName;
 	}
-	
-	public ActionExec getAction()
-	{
+
+	public ActionExec getAction() {
 		return action;
-	}	
-	
-	public String getAgName()
-	{
+	}
+
+	public String getAgName() {
 		return agName;
 	}
 }

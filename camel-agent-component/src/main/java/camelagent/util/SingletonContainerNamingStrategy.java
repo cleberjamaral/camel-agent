@@ -20,13 +20,11 @@
 package camelagent.util;
 
 /**
- * @author Stephen Cranefield
- * Returns a fixed predefined AgentContainer name
+ * @author Stephen Cranefield Returns a fixed predefined AgentContainer name
  */
 public class SingletonContainerNamingStrategy implements ContainerNamingStrategy {
-    
-	public String getName()
-	{		
+
+	public String getName() {
 		return ""; // No need for a container name
-	}	
+	}
 }

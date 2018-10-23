@@ -31,50 +31,50 @@ import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.ZooDefs.Ids;
 
 /**
- * @author surangika
- * Implements the logic to generate AgentContainer name using Zookeeper 
+ * @author surangika Implements the logic to generate AgentContainer name using
+ *         Zookeeper
  */
-public class ZookeeperContainerNamingStrategy implements ContainerNamingStrategy{
+public class ZookeeperContainerNamingStrategy implements ContainerNamingStrategy {
 	private Properties prop;
 	protected static String HOST;
-    protected static ZooKeeper zk;
-    protected static final byte[] NO_DATA = new byte[0];
-    protected static final Integer INITIAL_VERSION = 0;
-    private String containerId;
-    
+	protected static ZooKeeper zk;
+	protected static final byte[] NO_DATA = new byte[0];
+	protected static final Integer INITIAL_VERSION = 0;
+	private String containerId;
+
 	/**
 	 * @param path
 	 * @param createMode
 	 * @throws IOException
 	 * @throws KeeperException
 	 * @throws InterruptedException
-	 * Connects to the Zookeepr server and create a node using the given path
+	 *             Connects to the Zookeepr server and create a node using the given
+	 *             path
 	 */
-	public ZookeeperContainerNamingStrategy(String path, CreateMode createMode) throws IOException, KeeperException,InterruptedException
-	{		
+	public ZookeeperContainerNamingStrategy(String path, CreateMode createMode)
+			throws IOException, KeeperException, InterruptedException {
 		prop = new Properties();
 		try {
 			prop.load(new FileInputStream("config.properties"));
 		} catch (Exception e) {
-			
+
 		}
 		HOST = prop.getProperty("zookeeper_server");
 		zk = new ZooKeeper(HOST, 3000, new ZooKeeperWatcher());
-		
-		if (zk.exists(path, false) == null) 
-			containerId =  zk.create(path, NO_DATA, Ids.OPEN_ACL_UNSAFE, createMode);
+
+		if (zk.exists(path, false) == null)
+			containerId = zk.create(path, NO_DATA, Ids.OPEN_ACL_UNSAFE, createMode);
 	}
-		
-	public String getName()
-	{		
-		//Return the last part of the container as the name
+
+	public String getName() {
+		// Return the last part of the container as the name
 		String[] nameparts = containerId.split("/");
-		return nameparts[nameparts.length-1];
-	}	
-	
+		return nameparts[nameparts.length - 1];
+	}
+
 	protected class ZooKeeperWatcher implements Watcher {
-         @Override
-         public void process(WatchedEvent event) {
-         }
-	 }
+		@Override
+		public void process(WatchedEvent event) {
+		}
+	}
 }
