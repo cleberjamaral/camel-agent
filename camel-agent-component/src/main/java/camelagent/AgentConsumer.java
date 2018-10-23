@@ -122,7 +122,7 @@ public class AgentConsumer extends DefaultConsumer {
     						List<String[]> mappings = getResultHeaderSplitted();
     						for(String[] mapping : mappings)
     						{
-                                                        int unPos = Integer.parseInt(mapping[1]);
+                                int unPos = Integer.parseInt(mapping[1]);
     							String headerVal = mapping[0]; 
     							
 								//ArrayList<String> l = (ArrayList<String>)exchange.getIn().getHeader(headerVal);
