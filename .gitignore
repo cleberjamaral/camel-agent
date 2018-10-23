@@ -2,9 +2,9 @@
 .classpath
 .settings/**/*
 
-target/**.*
-build/**.*
-bin/**.*
+/target/**.*
+/build/**.*
+/bin/**.*
 
 *.class
 *~
