@@ -2,6 +2,10 @@
 .classpath
 .settings/**/*
 
+target/**.*
+build/**.*
+bin/**.*
+
 *.class
 *~
 /email-forwarding-app/target/
