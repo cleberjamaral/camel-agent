@@ -13,7 +13,7 @@ start.
 
 @b01 +present : .print("A participant was added.").
 
-@g00[atomic] +!setOffer : .count(present[source(B)],N) & .count(absent[source(B)],M) & N > M+1 <-
+@g00[atomic] +!setOffer : .count(present[source(B)],N) & .count(absent[source(C)],M) & N > M+1 <-
 	.print("Number of participants: ", N, ", already left: ", M); 
 	?price(P);
 	-+price(P+0.5);
