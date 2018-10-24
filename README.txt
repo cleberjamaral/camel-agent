@@ -6,7 +6,14 @@ camel-agent is distributed in the hope that it will be useful, but WITHOUT ANY W
 
 You should have received a copy of the GNU Lesser General Public License along with camel_jason.  If not, see http://www.gnu.org/licenses/.
 
-This is a maven project, containing these modules:
+This repository has two gradle projects:
+
+* camel-agent-component: the camel component
+
+* auction-telegram-app: a testing app to send and receive messages using Telegram messaging application. depend on camel-agent-component. This module is also a maven project.
+In each project the command "$ gradle wrapper" may be used to crate the wrapper and later "$ grade eclipse" may be used to cretate eclipse project files for the downloaded libraries and "$ gradle build" may be used to compile. 
+
+These modules still are maven projects:
 
 * camel-agent-component: This module contains the source code for the Camel agent component, and builds a jar file for that component
 
