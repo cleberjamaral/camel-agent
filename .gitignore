@@ -11,7 +11,8 @@ MTPs-Main-Container.txt
 .settings
 doc/*.html
 gradle
-gradle*.**
+gradlew
+gradlew.bat
 
 *.class
 
