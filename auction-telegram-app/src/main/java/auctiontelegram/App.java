@@ -1,5 +1,8 @@
 package auctiontelegram;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -12,6 +15,7 @@ import camelagent.*;
 
 public class App {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {
 
 		AgentContainer container = new AgentContainer(App.class.getClassLoader(), App.class.getPackage());
@@ -19,7 +23,9 @@ public class App {
 		camel.addComponent("agent", new AgentComponent(container));
 		camel.addComponent("telegram", new TelegramComponent());
 		
-		String telegramToken = "botToken1";
+		BufferedReader brTelegramToken;
+		brTelegramToken = new BufferedReader(new FileReader("../../sensitiveData/telegramBot1.token"));
+		String telegramToken = brTelegramToken.readLine();
 
 		/* Create the routes */
 		camel.addRoutes(new RouteBuilder() {

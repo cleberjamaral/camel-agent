@@ -19,7 +19,7 @@ start.
 	-+price(P+0.5);
 	.broadcast(tell, auction(banana, P+0.5));
 	auction(banana, P+0.5);
-	.wait(3000);
+	.wait(1500);
 	!!setOffer.
 
 @g01[atomic] +!setOffer <-
