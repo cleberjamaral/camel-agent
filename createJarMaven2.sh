@@ -11,7 +11,7 @@ You have built the jar using 'mvn install' on camel-agent-component sub-project
 PRESS ANY KEY TO CONTINUE
 "
 
-mvn install:install-file -DgroupId=nz.ac.otago.infosci -DartifactId=camelagent -Dversion=1.1.3 -Dfile=../camel-agent/camel-agent-component/build/libs/camel-agent-component.jar -Dpackaging=jar -DlocalRepositoryPath=. -DcreateChecksum=true -DpomFile=../camel-agent/camel-agent-component/pom.xml
+mvn install:install-file -DgroupId=nz.ac.otago.infosci -DartifactId=camelagent -Dversion=1.1.3 -Dfile=../camel-agent/camel-agent-component/target/camelagent-1.1.3.jar -Dpackaging=jar -DlocalRepositoryPath=. -DcreateChecksum=true -DpomFile=../camel-agent/camel-agent-component/pom.xml
 
 echo "
 
