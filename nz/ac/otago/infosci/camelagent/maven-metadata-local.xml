@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>nz.ac.otago.infosci</groupId>
+  <artifactId>camelagent</artifactId>
+  <versioning>
+    <release>1.1.3</release>
+    <versions>
+      <version>1.1.3</version>
+    </versions>
+    <lastUpdated>20181026181148</lastUpdated>
+  </versioning>
+</metadata>
