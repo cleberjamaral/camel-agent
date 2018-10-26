@@ -10,19 +10,20 @@
 apply plugin: 'java-library'
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 apply plugin: 'groovy'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
 	// Use jcenter for resolving your dependencies.
 	// You can declare any Maven/Ivy/file repository here.
-	jcenter()
+	mavenCentral()
 	mavenLocal()
 }
 
 ext {
 	versions = [
-		camel       : '2.12.3',
+		camel       : '2.19.1',
 	]
 }
 
@@ -37,37 +38,50 @@ dependencies {
 	// Use JUnit test framework
 	testImplementation 'junit:junit:4.12'
 
-	// https://mvnrepository.com/artifact/commons-lang/commons-lang
-	compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
-	// https://mvnrepository.com/artifact/org.apache.camel/camel-telegram
-	compile group: 'org.apache.camel', name: 'camel-telegram', version: '2.22.1'
-	// https://mvnrepository.com/artifact/javax.xml.soap/javax.xml.soap-api
-	compile group: 'javax.xml.soap', name: 'javax.xml.soap-api', version: '1.4.0'
-	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
-	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-	// https://mvnrepository.com/artifact/javax.activation/activation
-	compile group: 'javax.activation', name: 'activation', version: '1.1.1'
-	// https://mvnrepository.com/artifact/net.sf.jason/jason
-	compile group: 'net.sf.jason', name: 'jason', version: '2.2'
-	// https://mvnrepository.com/artifact/javax.mail/mail
-	compile group: 'javax.mail', name: 'mail', version: '1.4.7'
-	// https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
-	compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.3'//, ext: 'pom'
 	// https://mvnrepository.com/artifact/org.apache.camel/camel-core
 	compile group: 'org.apache.camel', name: 'camel-core', version: versions.camel
-	// https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
-	testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+	// https://mvnrepository.com/artifact/commons-lang/commons-lang
+	compile group: 'commons-lang', name: 'commons-lang', version: '2.3'
+	// https://mvnrepository.com/artifact/net.sf.jason/jason
+	compile group: 'net.sf.jason', name: 'jason', version: '2.2'
 	// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
 	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-	// https://mvnrepository.com/artifact/com.h2database/h2
-	testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
 	// https://mvnrepository.com/artifact/log4j/log4j
 	compile group: 'log4j', name: 'log4j', version: '1.2.17'
 	// https://mvnrepository.com/artifact/net.sf.corn/corn-cps
-	compile group: 'net.sf.corn', name: 'corn-cps', version: '1.1.10'
-	// https://mvnrepository.com/artifact/org.apache.camel/camel-zookeeper
-	compile group: 'org.apache.camel', name: 'camel-zookeeper', version: versions.camel
+	compile group: 'net.sf.corn', name: 'corn-cps', version: '1.1.7'
 
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-test
+	testCompile group: 'org.apache.camel', name: 'camel-test', version: versions.camel
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-zookeeper
+	testCompile group: 'org.apache.camel', name: 'camel-zookeeper', version: versions.camel
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-cxf
+	testCompile group: 'org.apache.camel', name: 'camel-cxf', version: versions.camel
+	// https://mvnrepository.com/artifact/org.apache.camel/camel-script
+	testCompile group: 'org.apache.camel', name: 'camel-script', version: versions.camel
+	// https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+	testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+}
+
+task createPom {
+	doLast {
+		pom {
+			project {
+				groupId 'nz.ac.otago.infosci'
+				artifactId 'camelagent'
+				version '1.1.3'
+				name 'Camel Agent Component'
+
+				licenses {
+					license {
+						name 'The Apache Software License, Version 2.0'
+						url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution 'https://github.com/cleberjamaral/camel-agent/raw/maven2'
+					}
+				}
+			}
+		}.writeTo("pom.xml")
+	}
 }
 
 eclipse {
